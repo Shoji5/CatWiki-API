@@ -1,6 +1,7 @@
 import cors from "cors";
 import express, { Application } from "express";
 import NotFound from "./middlewares/notFound.middleware";
+import BreedsRoute from "./routes/breeds.route";
 
 export default class Server {
   private app: Application;
@@ -16,7 +17,9 @@ export default class Server {
     this.app.use(cors());
   }
 
-  private middlewaresInput() {}
+  private middlewaresInput() {
+    this.app.use("/api/breeds", BreedsRoute);
+  }
 
   private routes() {}
 
